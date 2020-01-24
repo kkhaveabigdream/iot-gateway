@@ -10,7 +10,7 @@ public class SystemPerformanceAdaptor extends Thread {
 
 /*Create SystemCpuUtilTask and SystemMemUtilTask instance
  * call getDataFromSensor() to get the CPU Utilization and Memory Utilization data
- * display the output
+
 */
 	public void info() {
 		SystemCpuUtilTask a = new SystemCpuUtilTask();

@@ -3,9 +3,15 @@
  */
 package neu.kaishen.connecteddevices.labs;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import neu.kaishen.connecteddevices.labs.module01.SystemCpuUtilTask;
+import neu.kaishen.connecteddevices.labs.module01.SystemMemUtilTask;
+
 
 /**
  * Test class for all requisite Module01 functionality.
@@ -29,6 +35,7 @@ public class Module01Test
 	@Before
 	public void setUp() throws Exception
 	{
+		
 	}
 	
 	/**
@@ -42,12 +49,26 @@ public class Module01Test
 	// test methods
 	
 	/**
-	 * 
+	 * getDataFromSensor() function returns a float value representing the on-demand CPU utilization
+	 * passing values will be anything between 0.0 and 100.0	
 	 */
 	@Test
-	public void testSomething()
+	public void testSystemCpuUtil()
 	{
-//		fail("Not yet implemented");
+		SystemCpuUtilTask c = new SystemCpuUtilTask();
+		assertTrue(c.getDataFromSensor()<100 );
 	}
+	
+	/**
+	 * getDataFromSensor() function returns a float value representing the on-demand Memory utilization
+	 * passing values will be anything between 0.0 and 100.0	
+	 */
+	@Test
+	public void testSystemMemUtil()
+	{
+		SystemMemUtilTask m = new SystemMemUtilTask();
+		assertTrue(m.getDataFromSensor()>0 & m.getDataFromSensor()<100 );
+	}
+	
 	
 }
