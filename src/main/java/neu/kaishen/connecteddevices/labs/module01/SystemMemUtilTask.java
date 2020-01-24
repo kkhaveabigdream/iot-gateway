@@ -13,6 +13,10 @@ public class SystemMemUtilTask {
 		// TODO Auto-generated constructor stub
 	}
 
+/*
+use the java.lang.management package, and ManagementFactory, 
+getting the Memory Utilization percentage 
+*/
 public float getDataFromSensor() {
 		
 		MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();

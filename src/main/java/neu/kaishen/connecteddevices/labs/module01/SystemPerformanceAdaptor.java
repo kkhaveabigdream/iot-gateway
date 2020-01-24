@@ -5,9 +5,13 @@ import java.util.logging.Logger;
 public class SystemPerformanceAdaptor extends Thread {
 
 	public SystemPerformanceAdaptor() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
+/*Create SystemCpuUtilTask and SystemMemUtilTask instance
+ * call getDataFromSensor() to get the CPU Utilization and Memory Utilization data
+ * display the output
+*/
 	public void info() {
 		SystemCpuUtilTask a = new SystemCpuUtilTask();
 		SystemMemUtilTask b = new SystemMemUtilTask();
@@ -17,7 +21,7 @@ public class SystemPerformanceAdaptor extends Thread {
 		Logger log2 = Logger.getLogger("main");		
 		log2.info("Memory Utilization=" + b.getDataFromSensor());
 		
-		
+//initiate the thread to retrieve the function every 5 second	
 		try {
 			Thread.sleep(5000);
 		}catch (Exception e) {

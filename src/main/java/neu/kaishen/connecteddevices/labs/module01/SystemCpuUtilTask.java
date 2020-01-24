@@ -10,8 +10,11 @@ public class SystemCpuUtilTask {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
+/*
+use the java.lang.management package, 
+and ManagementFactory, getting the CPU Utilization percentage  
+*/
+	
 	public double getDataFromSensor() {
 		
 		OperatingSystemMXBean osBean = (com.sun.management.OperatingSystemMXBean) ManagementFactory

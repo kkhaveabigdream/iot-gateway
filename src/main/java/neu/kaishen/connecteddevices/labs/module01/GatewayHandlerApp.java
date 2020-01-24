@@ -3,9 +3,10 @@ package neu.kaishen.connecteddevices.labs.module01;
 public class GatewayHandlerApp extends Thread{
 
 	public GatewayHandlerApp() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
+//start the thread class
 	public void run() {
 		while (true) {
 			SystemPerformanceAdaptor a = new SystemPerformanceAdaptor();
