@@ -56,7 +56,7 @@ public class Module01Test
 	public void testSystemCpuUtil()
 	{
 		SystemCpuUtilTask c = new SystemCpuUtilTask();
-		assertTrue(c.getDataFromSensor()<100 );
+		assertTrue(c.getDataFromSensor()>=0 & c.getDataFromSensor()<100 );
 	}
 	
 	/**

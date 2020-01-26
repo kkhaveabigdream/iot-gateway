@@ -20,6 +20,12 @@ and ManagementFactory, getting the CPU Utilization percentage
 		OperatingSystemMXBean osBean = (com.sun.management.OperatingSystemMXBean) ManagementFactory
 	            .getOperatingSystemMXBean();
 		
-		return(osBean.getSystemCpuLoad());
+		double cpuUtil = osBean.getSystemCpuLoad();
+		
+		if (cpuUtil>0)
+			return cpuUtil;
+		else
+			return 0.0;
+					
 	}
 }
