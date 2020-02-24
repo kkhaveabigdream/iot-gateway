@@ -6,7 +6,7 @@ public class SensorData implements Serializable
 {
 	private String 	timeStamp	= null;
 	private String 	name		="Not Set";
-	private float  	curValue	=0.0f;
+	public  float  	curValue	=0.0f;
 	private float	avgValue	=0.0f;
 	private float	minValue	=0.0f;
 	private float	maxValue	=0.0f;
@@ -39,6 +39,11 @@ public class SensorData implements Serializable
 			this.avgValue = this.totValue / this.sampleCount;
 		}
 	}
+	
+	public float getCurrentValue() {
+		return this.curValue;
+	}
+	
 
 	public String getTimeStamp() {
 		java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(System.currentTimeMillis());

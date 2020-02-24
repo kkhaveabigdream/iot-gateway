@@ -14,12 +14,12 @@ public class PersistenceUtil {
 	
 	public void writeSensorDataToRedis(SensorData sensorData) {
 		String jsonData = dataUtil.sensorDataToJson(sensorData);
-		jedis.set("SensorData", jsonData);			
+		jedis.publish("SensorData", jsonData);			
 	}
 	
 	public void writeActuatorDataToRedis(ActuatorData actuatorData) {
 		String jsonData = dataUtil.actuatorDataToJson(actuatorData);
-		jedis.set("ActuatorData",jsonData);
+		jedis.publish("ActuatorData",jsonData);
 	}
 
 }
