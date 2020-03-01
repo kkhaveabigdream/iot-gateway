@@ -24,6 +24,7 @@ public class DataUtil {
 		if (jsonData !=null && jsonData.trim().length() >0) {
 			Gson gson = new Gson();
 			sensorData = gson.fromJson(jsonData, SensorData.class);
+			
 		}
 		return sensorData;
 	}

@@ -7,11 +7,11 @@ public class SensorData implements Serializable
 	private String 	timeStamp	= null;
 	private String 	name		="Not Set";
 	public  float  	curValue	=0.0f;
-	private float	avgValue	=0.0f;
-	private float	minValue	=0.0f;
-	private float	maxValue	=0.0f;
-	private float	totValue	=0.0f;
-	private int		sampleCount	=0;
+	public  float	avgValue	=0.0f;
+	public  float	minValue	=0.0f;
+	public  float	maxValue	=0.0f;
+	public  float	totValue	=0.0f;
+	public  int		sampleCount	=0;
 	
 	
 

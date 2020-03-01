@@ -1,8 +1,7 @@
 package neu.kaishen.connecteddevices.common;
 
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
 
 import redis.clients.jedis.JedisPubSub;
 
@@ -11,8 +10,10 @@ public class SensorDataListener extends JedisPubSub{
 	SensorData sensorData = null;
 	DataUtil dataUtil = null;
 	PersistenceUtil persistenceUtil = null;
-	//public Logger log1 = LoggerFactory.getLogger(SensorDataListener.class);
-	
+	//private Logger log1 = Logger.getLogger("loginfo");
+	private Logger log2 = Logger.getLogger("loginfo");
+	//private Logger log3 = Logger.getLogger("loginfo");
+	//private Logger log4 = Logger.getLogger("loginfo");
 
 	public SensorDataListener() {
 		actuatorData = new ActuatorData();
@@ -22,8 +23,9 @@ public class SensorDataListener extends JedisPubSub{
 
 	@Override
 	public void onMessage(String channel, String message) {
-		System.out.println("Listening on Redis, jsonSensorData retrieved from Redis...");
+		log2.info("Listening on Redis, jsonSensorData retrieved from Redis...");
 		System.out.println(channel + "=" + message);
+		//log1.info(channel + "=" + message);
 		//	log1.info(message);
 		sensorData = dataUtil.jsonToSensorData(message);
 		if (sensorData.curValue >20) {
@@ -39,6 +41,8 @@ public class SensorDataListener extends JedisPubSub{
 		}
 		//System.out.println(actuatorData.curValue + actuatorData.getCommand());
 		persistenceUtil.writeActuatorDataToRedis(actuatorData);
+		System.out.println("ActuatorData: " + actuatorData.curValue +" " + actuatorData.getCommand());
+		System.out.println("------------------------");
 		
 	}
 }
