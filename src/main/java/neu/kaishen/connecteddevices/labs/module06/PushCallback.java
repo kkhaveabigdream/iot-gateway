@@ -27,7 +27,7 @@ public class PushCallback implements MqttCallback{
 
 	public void messageArrived(String topic, MqttMessage message) {
 		Logger log = Logger.getLogger("main");
-		final Logger logger= Logger.getLogger(PushCallback.class.getName());
+		//final Logger logger= Logger.getLogger(PushCallback.class.getName());
 		//System.out.println("Message topic: " + topic);
 		//System.out.println("Receive message: " + message.getQos());
 		//System.out.println("Message: " + new String(message.getPayload()));

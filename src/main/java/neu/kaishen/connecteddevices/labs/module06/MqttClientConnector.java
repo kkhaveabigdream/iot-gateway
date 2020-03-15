@@ -48,7 +48,9 @@ public class MqttClientConnector {
 			
 			//int[] Qos	= {2};
 			//String[] topic1 = {TOPIC1};
-			//client.subscribe(topic1,Qos);
+			client.subscribe(TOPIC1,1);
+			
+			client.unsubscribe(TOPIC1);
 			
 		} catch (MqttException e) {
 			// TODO Auto-generated catch block
