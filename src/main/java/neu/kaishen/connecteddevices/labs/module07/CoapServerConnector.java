@@ -15,6 +15,11 @@ public class CoapServerConnector {
 		// TODO Auto-generated constructor stub
 	}
 
+	/*
+	 * Create the CoapServer
+	 * Using default host(127.0.0.0) & port(5683)
+	 * Instance the TempResouceHandler and add it to the server
+	 */
 	public void start() {
 		server = new CoapServer();
 		tempHandler = new TempResourceHandler();

@@ -25,6 +25,10 @@ public class TempResourceHandler extends CoapResource{
 		super("temp",false);
 	}
 
+	/*
+	 * Handle the get request
+	 * read the data from the file and return it to the client
+	 */
 	public void handleGET(CoapExchange ce) {
 		File file = new File("D:\\NEU Material\\Connected Devices\\Lab M07\\tempData.txt");
 		dataUtil = new DataUtil();
@@ -55,6 +59,10 @@ public class TempResourceHandler extends CoapResource{
 		
 	}
 	
+	/*
+	 * Handle the post request
+	 * Write the post data to the file
+	 */
 	public void handlePOST(CoapExchange ce) {
 		ce.accept();
 		File file = new File("D:\\NEU Material\\Connected Devices\\Lab M07\\tempData.txt");

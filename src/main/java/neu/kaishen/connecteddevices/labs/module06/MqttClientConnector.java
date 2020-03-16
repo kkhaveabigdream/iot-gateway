@@ -13,8 +13,8 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MqttClientConnector {
     public static final String HOST = "tcp://mqtt.eclipse.org:1883";  
-    public static final String TOPIC1 = "kai_test";  
-    private static final String clientid = "kai";  
+    public static final String TOPIC1 = "kai_test1";  
+    private static final String clientid = "kai1";  
     private MqttClient client;  
     private MqttConnectOptions options;  
     //private String userName = "admin";  
