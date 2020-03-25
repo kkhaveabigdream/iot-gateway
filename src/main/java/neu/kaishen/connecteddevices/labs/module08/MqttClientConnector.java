@@ -51,7 +51,7 @@ public class MqttClientConnector {
 	 * If isSecure is false, java client will implement normal connection	
 	 */
 		
-	public void connect() throws Exception{
+	public boolean connect() throws Exception{
 		if (isSecure) {
 			try {
 				client = new MqttClient(HOST2,clientid, new MemoryPersistence());
@@ -97,6 +97,7 @@ public class MqttClientConnector {
 			
 			client.connect(options);
 			log.info("Connect to broker: industrial.api.ubidots.com");
+
 			
 			//int[] Qos	= {2};
 			//String[] topic1 = {TOPIC1};
@@ -118,6 +119,7 @@ public class MqttClientConnector {
 			log.info("Failed to connect broker: industrial.api.ubidots.com");
 		}
 		}
+		return true;
 	}
 		
 
