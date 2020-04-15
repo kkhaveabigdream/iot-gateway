@@ -7,7 +7,7 @@ public class ActuatorData implements Serializable{
 	private String name			= "Not Set";
 	private String command		= "Not Set";
 	public  float  curValue		= 0.0f;
-	
+	//public  float  value		= 0.0f;
 	
 
 	public ActuatorData() {

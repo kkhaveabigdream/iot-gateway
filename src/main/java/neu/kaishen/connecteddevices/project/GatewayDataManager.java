@@ -1,4 +1,4 @@
-package neu.kaishen.connecteddevices.labs.module08;
+package neu.kaishen.connecteddevices.project;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,15 +10,19 @@ import neu.kaishen.connecteddevices.common.DataUtil;
 import neu.kaishen.connecteddevices.common.SensorData;
 
 public class GatewayDataManager {
-	URI uri = null;
-	CoapClient client =null;
+	URI uri1 = null;
+	CoapClient client1 =null;
+	URI uri2 = null;
+	CoapClient client2 =null;
 	DataUtil dataUtil = null;
 	SensorData sensorData = null;
 	
 	public GatewayDataManager() throws URISyntaxException {
-		uri = new URI("localhost:5683/temp");
-		client = new CoapClient(uri);
-		dataUtil = new DataUtil();
+		uri1 = new URI("localhost:5683/temp");
+		client1 = new CoapClient("coap://"+uri1);
+		
+		uri2 = new URI("localhost:5683/soilMoisture");
+		client2 = new CoapClient("coap://"+uri2);
 	}
 
 	/*
@@ -27,13 +31,19 @@ public class GatewayDataManager {
 	 * return Temperature value
 	 */
 	public float getSensorData()  {
-		CoapResponse response = client.get();
+
+		dataUtil = new DataUtil();
+		CoapResponse response = client1.get();
 		sensorData = dataUtil.jsonToSensorData(response.getResponseText());
-		//System.out.println(sensorData.curValue);
+		System.out.println(sensorData.curValue);
 		return sensorData.curValue;
 	}
 	
-	public void publishActuatorData(String payload) {
-		CoapResponse response = client.post(payload, 0);
+	public float getSoilMoistureData() {
+		dataUtil = new DataUtil();
+		CoapResponse response = client2.get();
+		sensorData = dataUtil.jsonToSensorData(response.getResponseText());
+		System.out.println(sensorData.curValue);
+		return sensorData.curValue;
 	}
 }
