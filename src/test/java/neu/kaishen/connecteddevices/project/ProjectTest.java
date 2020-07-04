@@ -3,9 +3,13 @@
  */
 package neu.kaishen.connecteddevices.project;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import neu.kaishen.connecteddevices.labs.module08.MqttClientConnector;
 
 /**
  * Test class for all requisite Project functionality.
@@ -48,6 +52,18 @@ public class ProjectTest
 	public void testSomething()
 	{
 //		fail("Not yet implemented");
+	}
+	
+	public void testMqttConnection() throws Exception
+	{
+		MqttClientConnector client = new MqttClientConnector();
+		assertTrue(client.connect());
+	}
+	
+	public void testSecureMqttConnection() throws Exception{
+		MqttClientConnector client = new MqttClientConnector();
+		client.isSecure = true;
+		assertTrue(client.connect());
 	}
 	
 }

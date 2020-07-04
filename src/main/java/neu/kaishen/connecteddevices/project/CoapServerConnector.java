@@ -3,6 +3,7 @@ package neu.kaishen.connecteddevices.project;
 import java.util.logging.Logger;
 
 import org.eclipse.californium.core.CoapServer;
+import org.eclipse.californium.core.network.CoapEndpoint;
 
 public class CoapServerConnector {
 
@@ -11,6 +12,7 @@ public class CoapServerConnector {
 	public CoapServer server;
 	public TempResourceHandler tempHandler;
 	public SoilMoistureResourceHandler soilMoistureHandler;
+	public CoapEndpoint endpoint;
 	
 	public CoapServerConnector() {
 		// TODO Auto-generated constructor stub

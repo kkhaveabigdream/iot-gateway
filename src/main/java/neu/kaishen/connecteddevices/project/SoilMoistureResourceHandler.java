@@ -42,7 +42,7 @@ public class SoilMoistureResourceHandler extends CoapResource{
 			//System.out.println("------>");
 			//System.out.println("Json After Receiving...");
 			//logger.info(data);
-			sensorData = dataUtil.jsonToSensorData(data);
+			//sensorData = dataUtil.jsonToSensorData(data);
 			//String msg = "Temperature\n" + "\tTime: " +(String)(sensorData.getTimeStamp()) + "\n\tCurrent: " + String.valueOf(sensorData.curValue) + "\n\tAverage: "  +String.valueOf(sensorData.avgValue) + "\n\tSamples: " + String.valueOf(sensorData.sampleCount) + "\n\tMin: " + String.valueOf(sensorData.minValue) + "\n\tMax: " + String.valueOf(sensorData.maxValue);
 			//System.out.println("Sensor Data...");
 			//logger.info(msg);
@@ -51,7 +51,7 @@ public class SoilMoistureResourceHandler extends CoapResource{
 			//logger.info(jsonData);
 									
 			//ce.respond(ResponseCode.VALID, "hello");
-			
+			System.out.println("handle get");
 		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

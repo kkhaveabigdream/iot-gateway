@@ -4,7 +4,7 @@ import java.net.URISyntaxException;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 
-public class MqttPubSub {
+public class MqttPubSub extends Thread{
 
     public static final String TOPIC1 = "/v1.6/devices/raspberrypi/soil_Moisture";  
     public static final String TOPIC2 = "/v1.6/devices/raspberrypi/actuator";
@@ -13,7 +13,7 @@ public class MqttPubSub {
     GatewayDataManager dataManager = null;
     
 	public MqttPubSub() throws Exception {
-
+		
 	}
 	
 	public void pubsub(MqttClientConnector client) throws Exception {
@@ -24,7 +24,8 @@ public class MqttPubSub {
 		
     
         client.publish(soilMoisture,TOPIC1);
-        client.subscribe(TOPIC2);
+        Thread.sleep(5000);
+        //client.subscribe(TOPIC2);
         
         client.publish(tempData, TOPIC3);
 

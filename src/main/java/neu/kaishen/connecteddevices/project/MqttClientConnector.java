@@ -25,7 +25,7 @@ public class MqttClientConnector {
     public static final String HOST = "tcp://industrial.api.ubidots.com:1883"; 
     public static final String HOST2 = "ssl://industrial.api.ubidots.com:8883"; 
 
-    private static final String clientid = "kai"; 
+    private static final String clientid = "kai233"; 
     public boolean isSecure = false;
     public String pemFile = "D:\\NEU Material\\Connected Devices\\Lab M08\\ubidots_cert.pem";
     public String userName = "BBFF-Yki4C1Rnh0JlLaY9ahQxNTkf7xMUlt";
@@ -151,7 +151,7 @@ public class MqttClientConnector {
 			
 		msg.setPayload(((""+data+"").getBytes()));
 		client.publish(TOPIC,msg);
-		log.info("Successfully Published a Temperature Data to Ubidots via mqtt...");
+		log.info("Successfully Published a Sensor Data to Ubidots via mqtt...");
 	}
 	
 	/*

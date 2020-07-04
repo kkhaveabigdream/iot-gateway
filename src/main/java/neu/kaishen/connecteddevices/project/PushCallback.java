@@ -13,8 +13,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import neu.kaishen.connecteddevices.common.ActuatorData;
 import neu.kaishen.connecteddevices.common.DataUtil;
-import neu.kaishen.connecteddevices.common.SensorData;
-import neu.kaishen.connecteddevices.labs.module08.GatewayDataManager;
+import neu.kaishen.connecteddevices.project.GatewayDataManager;
 
 
 public class PushCallback implements MqttCallback{
@@ -35,11 +34,16 @@ public class PushCallback implements MqttCallback{
 	public void messageArrived(String topic, MqttMessage message) {
 		Logger log = Logger.getLogger("main");
 		String msg = new String(message.getPayload());
-//		actuatorData = dataUtil.jsonToActuatorData(msg);
+		actuatorData = dataUtil.jsonToActuatorData(msg);
 //		System.out.println("-----------------");
-		test = msg;
-		dataManager.publishActuatorData(test);
-//		System.out.println(msg);
+		
+		if(actuatorData!=null) {
+			//test = msg;
+			//System.out.println(msg);
+			log.info("actuatorData");
+			dataManager.publishActuatorData(String.valueOf(actuatorData.value));
+		}
+
 //		System.out.println(actuatorData.value);
 		log.info("Subscribe to topic " + topic + " succeffully");
 

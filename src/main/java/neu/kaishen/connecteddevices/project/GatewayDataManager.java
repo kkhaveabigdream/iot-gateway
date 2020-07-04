@@ -28,14 +28,14 @@ public class GatewayDataManager {
 	/*
 	 * Connect to the local Coap Server
 	 * get the data transported from the device
-	 * return Temperature value
+	 * return Temperature value and SoilMoistureData
 	 */
 	public float getSensorData()  {
 
 		dataUtil = new DataUtil();
 		CoapResponse response = client1.get();
 		sensorData = dataUtil.jsonToSensorData(response.getResponseText());
-		System.out.println(sensorData.curValue);
+		//System.out.println(sensorData.curValue);
 		return sensorData.curValue;
 	}
 	
@@ -45,5 +45,10 @@ public class GatewayDataManager {
 		sensorData = dataUtil.jsonToSensorData(response.getResponseText());
 		System.out.println(sensorData.curValue);
 		return sensorData.curValue;
+	}
+	
+	public void publishActuatorData(String data) {
+		System.out.println(111111);
+		CoapResponse response = client2.post(data, 0);
 	}
 }

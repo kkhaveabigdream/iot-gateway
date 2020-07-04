@@ -33,7 +33,7 @@ public class GatewayDataManager {
 		return sensorData.curValue;
 	}
 	
-	public void publishActuatorData(String payload) {
-		CoapResponse response = client.post(payload, 0);
-	}
+//	public void publishActuatorData(String payload) {
+//		CoapResponse response = client.post(payload, 0);
+//	}
 }

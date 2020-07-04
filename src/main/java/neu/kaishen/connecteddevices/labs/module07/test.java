@@ -1,29 +1,32 @@
 package neu.kaishen.connecteddevices.labs.module07;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class test {
-    public static void main(String[] args) {
-        Node node= new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        node.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-
-        //Node temp = node;
-        //while (temp.next != null) {
-        while (node.next != null) {
-            node = node.next;
+	public int[] intersect(int[] nums1, int[] nums2) {
+    	Map<Integer,Integer> map = new HashMap<>();
+        int n1=nums1.length,n2=nums2.length;
+        int ans[] = new int[Math.min(n1,n2)];
+        for(int i=0;i<n1;i++){
+            map.put(nums1[i],i);
         }
-       node.next = new Node(10);
-        System.out.println(node2.next.next.t);
-    }
-}
-class Node<T> {
-    Node next;
-    T t;
+         
+        for(int i=0;i<n2;i++){
+            int a=0;
+            if(map.containsKey(nums2[i])) ans[a++] = nums2[i];
+            System.out.println(nums2[i]);
+        }
 
-    Node(T t) {
-        this.t = t;
+        
+        return ans;
+	}
+	
+    public static void main(String[] args) {
+    	int[] nums1 = {1,2,2,1};
+    	int[] nums2 = {2,2};
+    	test t = new test();
+    	t.intersect(nums1, nums2);
+
     }
 }
